@@ -13,6 +13,12 @@ public class HtmlBuilder {
         result.getChildren().add(e);
     }
 
+    public HtmlBuilder add(String childTag, String childText) {
+        var e = new HtmlElement(childTag, childText);
+        result.getChildren().add(e);
+        return this;
+    }
+
     @Override
     public String toString() {
         return result.toString();
