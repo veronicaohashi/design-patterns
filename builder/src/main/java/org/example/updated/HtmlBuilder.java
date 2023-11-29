@@ -19,6 +19,10 @@ public class HtmlBuilder {
         return this;
     }
 
+    public static HtmlBuilder create(String rootTag) {
+        return new HtmlBuilder(rootTag);
+    }
+
     @Override
     public String toString() {
         return result.toString();

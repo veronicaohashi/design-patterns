@@ -36,5 +36,12 @@ public class Main {
                 .add("li", "item2")
                 .add("li", "item3");
         System.out.println(builder2);
+
+        // ADD EXPRESSIVENESS
+        HtmlBuilder builder3 = HtmlBuilder.create("ul")
+                .add("li", "item1")
+                .add("li", "item2")
+                .add("li", "item3");
+        System.out.println(builder3);
     }
 }
