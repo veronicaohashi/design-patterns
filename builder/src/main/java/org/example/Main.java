@@ -2,8 +2,9 @@ package org.example;
 
 import org.example.initial.Director;
 import org.example.initial.HtmlDocumentBuilder;
-import org.example.updated.HtmlElement;
 import org.example.updated.HtmlBuilder;
+import org.example.updated.HtmlElement;
+import org.example.updated.HtmlElement.Builder;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,5 +44,14 @@ public class Main {
                 .add("li", "item2")
                 .add("li", "item3");
         System.out.println(builder3);
+
+        // USE NESTED BUILDER TO TRANSFORM THE HTML ELEMENT ATTRIBUTES IMMUTABLE
+        System.out.println("<==== NESTED BUILDER ===>");
+        Builder builder4 = Builder.create("ul")
+                .add("li", "item1")
+                .add("li", "item2")
+                .add("li", "item3");
+        System.out.println(builder4);
+
     }
 }

@@ -5,7 +5,7 @@ public class HtmlBuilder {
     private final HtmlElement result = new HtmlElement("");
 
     public HtmlBuilder(String rootTag) {
-        result.setTag(rootTag);
+        //result.setTag(rootTag);
     }
 
     public void addChild(String childTag, String childText) {

@@ -15,7 +15,7 @@ public class HtmlElement {
         this.children = new ArrayList<>();
     }
 
-    public void setTag(String tag) {
+    private void setTag(String tag) {
         this.tag = tag;
     }
 
@@ -23,7 +23,10 @@ public class HtmlElement {
         this(tag, null);
     }
 
+    // THIS METHOD COULD BE IMMUTABLE AND ONLY THE BUILDER CLASS COULD CHANGE
+    // THE VALUE OF CHILDREN
     public List<HtmlElement> getChildren() {
+//        return Collections.unmodifiableList(children);
         return children;
     }
     
@@ -41,6 +44,30 @@ public class HtmlElement {
         }
 
         sb.append(String.format("%s</%s>", indentation, tag));
+    }
+
+    public static class Builder {
+
+        private final HtmlElement result = new HtmlElement("");
+
+        public Builder(String rootTag) {
+            result.setTag(rootTag);
+        }
+
+        public Builder add(String childTag, String childText) {
+            var e = new HtmlElement(childTag, childText);
+            result.children.add(e);
+            return this;
+        }
+
+        public static Builder create(String rootTag) {
+            return new Builder(rootTag);
+        }
+
+        @Override
+        public String toString() {
+            return result.toString();
+        }
     }
 
     @Override
